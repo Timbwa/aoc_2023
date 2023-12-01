@@ -5,7 +5,7 @@ use clap::Parser;
 
 use crate::days::*;
 
-/// Rust Program for running AOC solutions
+/// Run Advent Of Code 2023 Solutions.
 #[derive(Parser, Debug)]
 #[command(author, version, about, long_about = None)]
 pub struct Cli {
@@ -21,9 +21,6 @@ pub fn run(cli: &mut Cli) -> Result<()> {
     // Append new Days to this vector
     let days: Vec<Box<dyn Day>> = vec![
         Box::new(Day01 {}),
-        Box::new(Day02 {}),
-        Box::new(Day03 {}),
-        Box::new(Day04 {}),
     ];
 
     if cli.run_latest {
