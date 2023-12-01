@@ -10,3 +10,4 @@ anyhow = "1.0.69"
 clap = { version = "4.1.6", features = ["derive"] }
 clap-verbosity-flag = "2.0.0"
 indexmap = "2.1.0"
+log = "0.4.20"

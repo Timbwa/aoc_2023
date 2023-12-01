@@ -1,9 +1,9 @@
-pub mod days;
-
 use anyhow::Result;
 use clap::Parser;
 
 use crate::days::*;
+
+pub mod days;
 
 /// Run Advent Of Code 2023 Solutions.
 #[derive(Parser, Debug)]
@@ -19,9 +19,7 @@ pub struct Cli {
 
 pub fn run(cli: &mut Cli) -> Result<()> {
     // Append new Days to this vector
-    let days: Vec<Box<dyn Day>> = vec![
-        Box::new(Day01 {}),
-    ];
+    let days: Vec<Box<dyn Day>> = vec![Box::new(Day01 {})];
 
     if cli.run_latest {
         run_day(days.last().unwrap().as_ref(), cli.test)?;
@@ -47,9 +45,7 @@ fn run_day(day: &dyn Day, is_test: bool) -> Result<()> {
     let result_2 = day.solution_2(&content_lines);
     let elapsed_2 = now.elapsed();
 
-    println!(
-        "Result 1 is {result_1:?} ({elapsed_1:?})\nResults 2 is {result_2:?} ({elapsed_2:?})"
-    );
+    println!("Result 1 is {result_1:?} ({elapsed_1:?})\nResults 2 is {result_2:?} ({elapsed_2:?})");
 
     Ok(())
 }
